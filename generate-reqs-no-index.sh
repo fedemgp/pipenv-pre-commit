@@ -1,4 +1,3 @@
 #!/bin/bash
 
-pipenv lock -r > requirements.txt
-sed -i '' -e '/^-i/d' requirements.txt
+pipenv lock -r | sed -e '/^-i/d' | sed -e '/^--extra-index-url/d'> requirements.txt
